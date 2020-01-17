@@ -12,7 +12,6 @@ public class SpleeterProcess : MonoBehaviour
 
     void Awake()
     {
-        print(inputSong.name + ".mp3");
         Process process = new Process();
         // Configure the process using the StartInfo properties.
         string filePath = Application.streamingAssetsPath + "/spleeter/spleeter/"; //Current Directory plus song path
@@ -21,7 +20,6 @@ public class SpleeterProcess : MonoBehaviour
         process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
         print("Output:" + Application.persistentDataPath);
         process.StartInfo.Arguments = "separate -i Assets/Songs/" + inputSong.name + ".mp3 -p spleeter:4stems -o " + outputPath; //Shell executable
-        print(process.StartInfo.FileName);
 
         process.Start();
         process.WaitForExit();
@@ -151,4 +149,4 @@ public class WAV
     {
         return string.Format("[WAV: LeftChannel={0}, RightChannel={1}, ChannelCount={2}, SampleCount={3}, Frequency={4}]", LeftChannel, RightChannel, ChannelCount, SampleCount, Frequency);
     }
-}
+} //Class for converting wav btye[] data to float[]
