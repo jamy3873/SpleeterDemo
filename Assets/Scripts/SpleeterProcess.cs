@@ -17,8 +17,9 @@ public class SpleeterProcess : MonoBehaviour
         string filePath = Application.streamingAssetsPath + "/spleeter/spleeter/"; //Current Directory plus song path
         string outputPath = Application.persistentDataPath + "/Spleets/";
         process.StartInfo.FileName = filePath + "spleeter.exe";
+        print("File:"+ process.StartInfo.FileName);
         process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-        print("Output:" + Application.persistentDataPath);
+        print("Output:" + outputPath);
         process.StartInfo.Arguments = "separate -i Assets/Songs/" + inputSong.name + ".mp3 -p spleeter:4stems -o " + outputPath; //Shell executable
 
         process.Start();
